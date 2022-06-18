@@ -1,53 +1,14 @@
-# Welcome to Remix!
+# Reproduction Steps
+1. Load the test page at http://localhost:3000/test/
 
-- [Remix Docs](https://remix.run/docs)
+    a. you will see a console log for the render call
+2. Click Either link
 
-## Development
+    a. you will see 2x console logs for the index rendering, and then a console log for the requested path
 
-From your terminal:
 
-```sh
-npm run dev
-```
+## Is this expected behavior
+In this example there is not much of a concern but in my real example I have an image gallery index to a detail image page which:
 
-This starts your app in development mode, rebuilding assets on file changes.
-
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
-
-### Using a Template
-
-When you ran `npx create-remix@latest` there were a few choices for hosting. You can run that again to create a new project, then copy over your `app/` folder to the new project that's pre-configured for your target server.
-
-```sh
-cd ..
-# create a new project, and pick a pre-configured host
-npx create-remix@latest
-cd my-new-remix-app
-# remove the new project's app (not the old one!)
-rm -rf app
-# copy your app over
-cp -R ../my-old-remix-app/app app
-```
+* Flashes on route change
+* requests all the images from index without actually needing them
